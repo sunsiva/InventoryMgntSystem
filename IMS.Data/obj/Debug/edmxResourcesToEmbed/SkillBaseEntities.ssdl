@@ -1,0 +1,351 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SkillBaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="AppSetting">
+    <Key>
+      <PropertyRef Name="RowKey" />
+    </Key>
+    <Property Name="RowKey" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="SettingName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="TextDataValue" Type="varchar(max)" />
+    <Property Name="IntegerDataValue" Type="int" />
+    <Property Name="XmlDataValue" Type="nvarchar(max)" />
+    <Property Name="DateAdded" Type="datetime" Nullable="false" />
+    <Property Name="AddedBy" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DateModified" Type="datetime" />
+    <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="AppUser">
+    <Key>
+      <PropertyRef Name="RowKey" />
+    </Key>
+    <Property Name="RowKey" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="AppUserName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
+    <Property Name="MiddleName" Type="nvarchar" MaxLength="50" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="50" />
+    <Property Name="SurName" Type="nvarchar" MaxLength="50" />
+    <Property Name="EmailAddress" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Phone" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="AlternateContactNumber" Type="nvarchar" MaxLength="20" />
+    <Property Name="YearsOfExperience" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="Image" Type="nvarchar" MaxLength="250" />
+    <Property Name="BloodGroup" Type="nvarchar" MaxLength="25" />
+    <Property Name="Password" Type="varbinary" MaxLength="200" Nullable="false" />
+    <Property Name="TeamKey" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="LocationKey" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+    <Property Name="PasswordExpirationDate" Type="datetime" Nullable="false" />
+    <Property Name="PasswordExpirationNextNotificationDate" Type="datetime" Nullable="false" />
+    <Property Name="RoleKey" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="AppUserStatusKey" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="DateAdded" Type="datetime" Nullable="false" />
+    <Property Name="AddedBy" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DateModified" Type="datetime" />
+    <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="AppUserPasswordReset">
+    <Key>
+      <PropertyRef Name="RowKey" />
+    </Key>
+    <Property Name="RowKey" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="AppUserKey" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="PasswordResetToken" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="PasswordResetExpirationDate" Type="datetime" Nullable="false" />
+    <Property Name="DateAdded" Type="datetime" Nullable="false" />
+    <Property Name="AddedBy" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DateModified" Type="datetime" />
+    <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="AppUserQuallification">
+    <Key>
+      <PropertyRef Name="RowKey" />
+    </Key>
+    <Property Name="RowKey" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="AppUserKey" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="QualificationKey" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="DateAdded" Type="datetime" Nullable="false" />
+    <Property Name="AddedBy" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DateModified" Type="datetime" />
+    <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="AppUserSkillSet">
+    <Key>
+      <PropertyRef Name="RowKey" />
+    </Key>
+    <Property Name="RowKey" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="AppUserKey" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="SkillSetKey" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="DateAdded" Type="datetime" Nullable="false" />
+    <Property Name="AddedBy" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DateModified" Type="datetime" />
+    <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="AppUserStatus">
+    <Key>
+      <PropertyRef Name="RowKey" />
+    </Key>
+    <Property Name="RowKey" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="StatusName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="DateAdded" Type="datetime" Nullable="false" />
+    <Property Name="AddedBy" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DateModified" Type="datetime" />
+    <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="FailedLogin">
+    <Key>
+      <PropertyRef Name="RowKey" />
+    </Key>
+    <Property Name="RowKey" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="AppUserName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="NumberOfAttempts" Type="int" Nullable="false" />
+    <Property Name="AppUserLockDate" Type="datetime" />
+    <Property Name="DateAdded" Type="datetime" Nullable="false" />
+    <Property Name="AddedBy" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DateModified" Type="datetime" />
+    <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Locations">
+    <Key>
+      <PropertyRef Name="RowKey" />
+    </Key>
+    <Property Name="RowKey" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="LocationName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="DateAdded" Type="datetime" Nullable="false" />
+    <Property Name="AddedBy" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DateModified" Type="datetime" />
+    <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="PasswordHistory">
+    <Key>
+      <PropertyRef Name="RowKey" />
+    </Key>
+    <Property Name="RowKey" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="AppUserKey" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Password" Type="varbinary" MaxLength="200" Nullable="false" />
+    <Property Name="DateAdded" Type="datetime" Nullable="false" />
+    <Property Name="AddedBy" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DateModified" Type="datetime" />
+    <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Qualifications">
+    <Key>
+      <PropertyRef Name="RowKey" />
+    </Key>
+    <Property Name="RowKey" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="QualificationName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="DateAdded" Type="datetime" Nullable="false" />
+    <Property Name="AddedBy" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DateModified" Type="datetime" />
+    <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Roles">
+    <Key>
+      <PropertyRef Name="RowKey" />
+    </Key>
+    <Property Name="RowKey" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="RoleName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="DateAdded" Type="datetime" Nullable="false" />
+    <Property Name="AddedBy" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DateModified" Type="datetime" />
+    <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="SkillSets">
+    <Key>
+      <PropertyRef Name="RowKey" />
+    </Key>
+    <Property Name="RowKey" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="SkillSetName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="DateAdded" Type="datetime" Nullable="false" />
+    <Property Name="AddedBy" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DateModified" Type="datetime" />
+    <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Teams">
+    <Key>
+      <PropertyRef Name="RowKey" />
+    </Key>
+    <Property Name="RowKey" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="TeamName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="DateAdded" Type="datetime" Nullable="false" />
+    <Property Name="AddedBy" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DateModified" Type="datetime" />
+    <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_AppUser_AppUserStatus">
+    <End Role="AppUserStatus" Type="Self.AppUserStatus" Multiplicity="1" />
+    <End Role="AppUser" Type="Self.AppUser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AppUserStatus">
+        <PropertyRef Name="RowKey" />
+      </Principal>
+      <Dependent Role="AppUser">
+        <PropertyRef Name="AppUserStatusKey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AppUser_Locations">
+    <End Role="Locations" Type="Self.Locations" Multiplicity="1" />
+    <End Role="AppUser" Type="Self.AppUser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Locations">
+        <PropertyRef Name="RowKey" />
+      </Principal>
+      <Dependent Role="AppUser">
+        <PropertyRef Name="LocationKey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AppUser_Roles">
+    <End Role="Roles" Type="Self.Roles" Multiplicity="1" />
+    <End Role="AppUser" Type="Self.AppUser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Roles">
+        <PropertyRef Name="RowKey" />
+      </Principal>
+      <Dependent Role="AppUser">
+        <PropertyRef Name="RoleKey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AppUser_Teams">
+    <End Role="Teams" Type="Self.Teams" Multiplicity="1" />
+    <End Role="AppUser" Type="Self.AppUser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Teams">
+        <PropertyRef Name="RowKey" />
+      </Principal>
+      <Dependent Role="AppUser">
+        <PropertyRef Name="TeamKey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AppUserPasswordReset_AppUserKey_FK">
+    <End Role="AppUser" Type="Self.AppUser" Multiplicity="1" />
+    <End Role="AppUserPasswordReset" Type="Self.AppUserPasswordReset" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AppUser">
+        <PropertyRef Name="RowKey" />
+      </Principal>
+      <Dependent Role="AppUserPasswordReset">
+        <PropertyRef Name="AppUserKey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AppUserQuallification_AppUser">
+    <End Role="AppUser" Type="Self.AppUser" Multiplicity="1" />
+    <End Role="AppUserQuallification" Type="Self.AppUserQuallification" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AppUser">
+        <PropertyRef Name="RowKey" />
+      </Principal>
+      <Dependent Role="AppUserQuallification">
+        <PropertyRef Name="AppUserKey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AppUserQuallification_Qualifications">
+    <End Role="Qualifications" Type="Self.Qualifications" Multiplicity="1" />
+    <End Role="AppUserQuallification" Type="Self.AppUserQuallification" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Qualifications">
+        <PropertyRef Name="RowKey" />
+      </Principal>
+      <Dependent Role="AppUserQuallification">
+        <PropertyRef Name="QualificationKey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AppUserSkillSet_AppUser">
+    <End Role="AppUser" Type="Self.AppUser" Multiplicity="1" />
+    <End Role="AppUserSkillSet" Type="Self.AppUserSkillSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AppUser">
+        <PropertyRef Name="RowKey" />
+      </Principal>
+      <Dependent Role="AppUserSkillSet">
+        <PropertyRef Name="AppUserKey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AppUserSkillSet_SkillSets">
+    <End Role="SkillSets" Type="Self.SkillSets" Multiplicity="1" />
+    <End Role="AppUserSkillSet" Type="Self.AppUserSkillSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SkillSets">
+        <PropertyRef Name="RowKey" />
+      </Principal>
+      <Dependent Role="AppUserSkillSet">
+        <PropertyRef Name="SkillSetKey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PasswordHistory_PasswordHistory">
+    <End Role="AppUser" Type="Self.AppUser" Multiplicity="1" />
+    <End Role="PasswordHistory" Type="Self.PasswordHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AppUser">
+        <PropertyRef Name="RowKey" />
+      </Principal>
+      <Dependent Role="PasswordHistory">
+        <PropertyRef Name="AppUserKey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="SkillBaseModelStoreContainer">
+    <EntitySet Name="AppSetting" EntityType="Self.AppSetting" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AppUser" EntityType="Self.AppUser" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AppUserPasswordReset" EntityType="Self.AppUserPasswordReset" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AppUserQuallification" EntityType="Self.AppUserQuallification" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AppUserSkillSet" EntityType="Self.AppUserSkillSet" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AppUserStatus" EntityType="Self.AppUserStatus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FailedLogin" EntityType="Self.FailedLogin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Locations" EntityType="Self.Locations" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PasswordHistory" EntityType="Self.PasswordHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Qualifications" EntityType="Self.Qualifications" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SkillSets" EntityType="Self.SkillSets" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Teams" EntityType="Self.Teams" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_AppUser_AppUserStatus" Association="Self.FK_AppUser_AppUserStatus">
+      <End Role="AppUserStatus" EntitySet="AppUserStatus" />
+      <End Role="AppUser" EntitySet="AppUser" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AppUser_Locations" Association="Self.FK_AppUser_Locations">
+      <End Role="Locations" EntitySet="Locations" />
+      <End Role="AppUser" EntitySet="AppUser" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AppUser_Roles" Association="Self.FK_AppUser_Roles">
+      <End Role="Roles" EntitySet="Roles" />
+      <End Role="AppUser" EntitySet="AppUser" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AppUser_Teams" Association="Self.FK_AppUser_Teams">
+      <End Role="Teams" EntitySet="Teams" />
+      <End Role="AppUser" EntitySet="AppUser" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AppUserPasswordReset_AppUserKey_FK" Association="Self.FK_AppUserPasswordReset_AppUserKey_FK">
+      <End Role="AppUser" EntitySet="AppUser" />
+      <End Role="AppUserPasswordReset" EntitySet="AppUserPasswordReset" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AppUserQuallification_AppUser" Association="Self.FK_AppUserQuallification_AppUser">
+      <End Role="AppUser" EntitySet="AppUser" />
+      <End Role="AppUserQuallification" EntitySet="AppUserQuallification" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AppUserQuallification_Qualifications" Association="Self.FK_AppUserQuallification_Qualifications">
+      <End Role="Qualifications" EntitySet="Qualifications" />
+      <End Role="AppUserQuallification" EntitySet="AppUserQuallification" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AppUserSkillSet_AppUser" Association="Self.FK_AppUserSkillSet_AppUser">
+      <End Role="AppUser" EntitySet="AppUser" />
+      <End Role="AppUserSkillSet" EntitySet="AppUserSkillSet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AppUserSkillSet_SkillSets" Association="Self.FK_AppUserSkillSet_SkillSets">
+      <End Role="SkillSets" EntitySet="SkillSets" />
+      <End Role="AppUserSkillSet" EntitySet="AppUserSkillSet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PasswordHistory_PasswordHistory" Association="Self.FK_PasswordHistory_PasswordHistory">
+      <End Role="AppUser" EntitySet="AppUser" />
+      <End Role="PasswordHistory" EntitySet="PasswordHistory" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

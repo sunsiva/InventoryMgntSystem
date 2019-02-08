@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="9dfeff1334aa471cb5b707e11efd87ed" Name="Diagram1">
+        <EntityTypeShape EntityType="IMSModel.C__MigrationHistory" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMSModel.AspNetRole" Width="1.5" PointX="5.75" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMSModel.AspNetUserClaim" Width="1.5" PointX="10.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMSModel.AspNetUserLogin" Width="1.5" PointX="10.25" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMSModel.AspNetUser" Width="1.5" PointX="8" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMSModel.COMPANY" Width="1.5" PointX="1.5" PointY="28.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMSModel.CONTACT_DETAILS" Width="1.5" PointX="8" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMSModel.CUST_STATUS_HISTORY" Width="1.5" PointX="3" PointY="20.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMSModel.CUSTOMER" Width="1.5" PointX="0.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMSModel.CUSTXPROD" Width="1.5" PointX="10.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMSModel.EVENTSCHEDULE" Width="1.5" PointX="12.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMSModel.EXCEPTION_LOGGING" Width="1.5" PointX="12.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMSModel.LOCATION_MASTER" Width="1.5" PointX="5.75" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMSModel.LOOKUP_CATEGORIES" Width="1.5" PointX="10.75" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMSModel.LOOKUP_DATA" Width="1.5" PointX="13" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMSModel.PRODUCT" Width="1.5" PointX="0.75" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMSModel.PURCHASE_ORDER" Width="1.5" PointX="8" PointY="13.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMSModel.QUOTATION" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMSModel.RATING_MASTER" Width="1.5" PointX="1.5" PointY="38.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMSModel.RFQ" Width="1.5" PointX="14.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMSModel.UserXRole" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMSModel.WORKORDER" Width="1.5" PointX="3" PointY="14" IsExpanded="true" />
+        <AssociationConnector Association="IMSModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_User_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="IMSModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="IMSModel.FK_CUSTOMER_COMPANY" ManuallyRouted="false" />
+        <AssociationConnector Association="IMSModel.FK_CONTACT_DETAILS_LOCATION_MASTER" ManuallyRouted="false" />
+        <AssociationConnector Association="IMSModel.FK_CUST_STATUS_HISTORY_CUSTOMER" ManuallyRouted="false" />
+        <AssociationConnector Association="IMSModel.FK_CUSTOMER_RATING_MASTER" ManuallyRouted="false" />
+        <AssociationConnector Association="IMSModel.FK_QUOTATION_CUSTOMER" ManuallyRouted="false" />
+        <AssociationConnector Association="IMSModel.FK_PURCHASE_ORDER_LOCATION_MASTER" ManuallyRouted="false" />
+        <AssociationConnector Association="IMSModel.FK_LOOKUP_DATA_LOOKUP_CATEGORIES" ManuallyRouted="false" />
+        <AssociationConnector Association="IMSModel.FK_QUOTATION_PRODUCTS" ManuallyRouted="false" />
+        <AssociationConnector Association="IMSModel.FK_WORKORDER_PRODUCTS" ManuallyRouted="false" />
+        <AssociationConnector Association="IMSModel.FK_QUOTATION_QUOTATION" ManuallyRouted="false" />
+        <AssociationConnector Association="IMSModel.FK_UserXRole_UserXRole" ManuallyRouted="false" />
+        <AssociationConnector Association="IMSModel.AspNetUserRoles" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

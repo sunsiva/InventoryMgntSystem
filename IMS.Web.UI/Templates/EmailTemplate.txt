@@ -1,0 +1,8 @@
+﻿<html><body>
+<p>Hello,</p>
+<!-- Insert email body -->
+<p>{0}</p>
+<br>
+<!-- Create footer -->
+
+</body></html>

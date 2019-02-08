@@ -1,0 +1,34 @@
+﻿
+@model IMS.Business.ViewModel.LoginModel
+@using IMS.Business.ViewModel
+
+<div class="col-md-4 col-md-offset-4">
+    <div class="panel panel-default">
+        <div class="panel-heading"><img alt="@IMSRes.IMSPortal" title="@IMSRes.IMSPortal" class="mid-blue" src="~/Images/logo.png" class="center" /></div>
+        <div class="panel-body">
+            <h2 class="mid-blue">@IMSRes.Login_Login</h2>
+            @using (Html.BeginForm("Login", "Login", FormMethod.Post))
+            {
+                @Html.ValidationSummary(true)
+                @Html.AntiForgeryToken()
+                <div class="form-group">
+                    @Html.LabelFor(m => m.LoginUsername, new { @class = "form-label display-none" })
+                    @Html.TextBoxFor(m => m.LoginUsername, new { @class = "form-control border-radius", @placeholder = IMSRes.Login_Username })
+                    @Html.ValidationMessageFor(m => m.LoginUsername)
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.LoginPassword, new { @class = "form-label display-none" })
+                    @Html.TextBoxFor(m => m.LoginPassword, new { @class = "form-control border-radius", @placeholder = IMSRes.Login_Password, @type = "password" })
+                    @Html.ValidationMessageFor(m => m.LoginPassword)
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-default btn-block">@IMSRes.Login_Login</button>
+                </div>
+                @Html.ActionLink(IMSRes.ForgotPassword, "ForgotPassword", "Login", new { @class = "text-color-link" })
+                @Html.HiddenFor(m => m.ReturnUrl)
+                @Html.HiddenFor(m => m.TimeZoneTime)
+            }
+
+        </div>
+    </div>
+</div>
